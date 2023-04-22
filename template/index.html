@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ .PageTitle}} </title>
+</head>
+<body>
+    <header>
+        <h1>Go Task </h1>
+    </header>
+    <main>
+        <article>
+            <h2>Why Go Task</h2>
+            <p>Go Task Makes Creating and Managing Tasks Easier</p>
+        </article>
+        <section>
+            <form>
+                <input type="text" class="input" placeholder="Enter task">
+                <button type="submit" id="btn-submit">Add</button>
+            </form>
+        </section>
+        <section>
+            <table>
+                <caption>Go Task Table</caption>
+                <thead>
+                    <tr>
+                        <th>S/N</th>
+                        <th>Title</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                {{range .Tasks}}
+                    <tr>
+                        <td> {{ .Index}} </td>
+                        <td> {{ .Title}} </td>
+                        {{if .Status}}
+                            <td> Done </td>
+                        {{else}}
+                            <td> Pending </td>
+                        {{end}}
+                    </tr>
+                {{end}}
+            </table>
+        </section>
+    </main>
+</body>
+</html>
